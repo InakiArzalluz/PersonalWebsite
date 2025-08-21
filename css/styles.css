@@ -1,0 +1,25 @@
+body {
+    background: linear-gradient(to bottom, #F9FBFF, #EAF0F6);
+}
+
+.title {
+    font-family: "Work Sans", "Noto Sans", sans-serif;
+    letter-spacing: -0.033em;
+    font-weight: 900;
+}
+
+.card-text {
+    color: #60768a;
+}
+
+.subtitle {
+    font-weight: 700;
+}
+
+.my-description {
+    text-align: justify;
+}
+
+#portrait{
+    margin-top: 0.6rem;
+}

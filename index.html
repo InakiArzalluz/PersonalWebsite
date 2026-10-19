@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="es-ES">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iñaki Arzálluz</title>
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0a0e17" />
+    <meta
+      name="description"
+      content="Iñaki Arzálluz — Systems Engineer from Argentina specialized in software development, virtual reality, cross-platform applications and database systems."
+    />
+    <title>Iñaki Arzálluz · Systems Engineer</title>
     <link rel="shortcut icon" href="favicon.png" type="image/png" />
+
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
@@ -13,287 +20,394 @@
       crossorigin="anonymous"
     />
     <!-- Bootstrap Icons -->
-    <link 
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    >
-    <!-- Noto Sans -->
+    />
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <link
       rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
     />
     <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- Mark JS as available before paint so reveal animations never hide content without JS -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
 
   <body>
-    <!-- Title -->
-    <section id="title">
-      <div class="container mt-5 mb-4 text-left">
-        <div class="row">
-          <div class="col-lg-4">
-            <img
-              id="portrait"
-              class="img-fluid rounded-3 profile-image mg-img-me"
-              src="./images/profile_pic.webp"
-              alt="profile picture"
-              width="321.6px"
-              height="321.6px"
-            />
-          </div>
-          <div class="col-lg-8 d-flex flex-column">
-            <h1 class="display-5 text-body-emphasis title">
-              Hi, I'm Iñaki Arzálluz
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md fixed-top site-nav" aria-label="Primary">
+      <div class="container">
+        <a class="navbar-brand" href="#title">
+          <span class="brand-mark">IA</span>
+          <span>Iñaki Arzálluz</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item"><a class="nav-link" href="#features">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tech-stack">Stack</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact-me">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="title" class="hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7 order-2 order-lg-1 reveal">
+            <span class="eyebrow">Systems Engineer</span>
+            <h1 class="hero-title">
+              Hi, I'm <span class="gradient-text">Iñaki Arzálluz</span>
             </h1>
-            <p>Systems Engineer - Unicen 2025</p>
-            <h2 class="lead flex-grow-1 fw-normal my-description">
-              I’m a Systems Engineer from Argentina specialized in software development with experience in virtual reality, cross-platform applications, and database systems.
-            </h2>
-            <h2 class="lead flex-grow-1 fw-normal my-description">
-              I’m currently working as a software developer and teaching assistant at UNICEN.
-            </h2>
-            <h2 class="lead flex-grow-1 fw-normal my-description">
-              I focus on delivering efficient, high-quality solutions while continuously refining my skills in modern technologies.
-            </h2>
-            <div
-              class="d-grid gap-2 d-sm-flex justify-content-sm-center align-bottom"
-            >
-              <a  href="#contact-me" class="col-12 btn btn-primary btn-lg px-4 gap-3">
-                Contact me
+            <p class="hero-role">Systems Engineer · UNICEN 2025</p>
+            <p class="hero-lead">
+              I'm a Systems Engineer from Argentina specialized in software development with
+              experience in virtual reality, cross-platform applications, and database systems.
+            </p>
+            <p class="hero-lead">
+              I'm currently working as a software developer and teaching assistant at UNICEN.
+            </p>
+            <p class="hero-lead">
+              I focus on delivering efficient, high-quality solutions while continuously refining
+              my skills in modern technologies.
+            </p>
+            <div class="hero-actions">
+              <a href="#contact-me" class="btn btn-glow">
+                <i class="bi bi-send"></i>Contact me
+              </a>
+              <a href="#features" class="btn btn-ghost">
+                <i class="bi bi-grid-1x2"></i>View projects
               </a>
             </div>
           </div>
+
+          <div class="col-lg-5 text-center order-1 order-lg-2">
+            <div class="hero-avatar">
+              <img
+                src="./images/profile_pic.webp"
+                alt="Portrait of Iñaki Arzálluz"
+                width="321"
+                height="321"
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- Features -->
-    <section id="features">
-      <div class="container mb-4">
-        <h2 class="text-body-emphasis subtitle">Projects</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <!-- Projects -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Portfolio</span>
+          <h2 class="section-title">Projects</h2>
+        </div>
 
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
           <!-- Card 1 -->
-          <div class="col d-flex">
-            <div class="card shadow-sm flex-fill">
+          <div class="col reveal">
+            <article class="card project-card h-100">
               <div class="card-thumbnail">
-                <img 
-                  class="card-img-top img-fluid"
+                <img
                   src="./images/tranqui-360.webp"
                   alt="VR 3D scene with a virtual hand holding a fruit."
-                >
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Tranquiliza.360 - Player</h5>
+                <h3 class="card-title">Tranquiliza.360 — Player</h3>
                 <p class="card-text">
-                  Immersive VR application for the Meta Quest platform, designed to reproduce different types of content
-                  in an interactive environment, while capturing relevant metrics about the user’s interactions.
+                  Immersive VR application for the Meta Quest platform, designed to reproduce
+                  different types of content in an interactive environment, while capturing
+                  relevant metrics about the user's interactions.
                 </p>
                 <p class="card-text">
-                  It can show something as simple as an image/video, or something as complex as an interactive 3D scene, and everything in between.
+                  It can show something as simple as an image/video, or something as complex as an
+                  interactive 3D scene, and everything in between.
                 </p>
-                <div class="mt-auto">
-                  <!-- mt-auto used to push things to the bottom -->
+                <div class="tech-tags mt-auto">
+                  <span class="tag">Unity3D</span>
+                  <span class="tag">.Net</span>
+                  <span class="tag">OpenXR</span>
+                  <span class="tag">Java</span>
                 </div>
-                <div>
-                  <p class="badge text-bg-secondary">Unity3D, .Net, OpenXR, Java</p>
-                </div>
-                <a 
+                <a
                   href="https://www.tranquiliza360.com.ar/"
-                  class="btn btn-primary btn-lg"
+                  class="btn btn-glow w-100 mt-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Project website
+                  Project website <i class="bi bi-arrow-up-right"></i>
                 </a>
               </div>
-            </div>
+            </article>
           </div>
 
           <!-- Card 2 -->
-          <div class="col d-flex">
-            <div class="card shadow-sm flex-fill">
+          <div class="col reveal">
+            <article class="card project-card h-100">
               <div class="card-thumbnail">
                 <img
-                  class="card-img-top img-fluid" 
                   src="./images/tranqui-flut.webp"
                   alt="Grid of thumbnails, with edit and delete buttons on each one."
-                >
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Tranquiliza.360 - Controller</h5>
+                <h3 class="card-title">Tranquiliza.360 — Controller</h3>
                 <p class="card-text">
-                  Cross-platform App that serves as the control interface for the VR player.
+                  Cross-platform app that serves as the control interface for the VR player.
                 </p>
-                <p class="card-text">
-                  It enables users to:
-                  <ol class="card-text">
-                    <li>Remotely configure, control and visualize VR sessions in real time.</li>
-                    <li>Add new contents, such as images, videos, or even 3rd party apps</li>
-                    <li>Customize, or delete existing contents</li>
-                    <li>Easily display metrics captured by the VR player</li>
-                  </ol>
-                </p>
-                <div class="mt-auto">
-                   <!-- mt-auto used to push things to the bottom -->
+                <p class="card-text">It enables users to:</p>
+                <ul class="feature-list">
+                  <li>Remotely configure, control and visualize VR sessions in real time.</li>
+                  <li>Add new contents, such as images, videos, or even 3rd party apps.</li>
+                  <li>Customize, or delete existing contents.</li>
+                  <li>Easily display metrics captured by the VR player.</li>
+                </ul>
+                <div class="tech-tags mt-auto">
+                  <span class="tag">Flutter</span>
+                  <span class="tag">SQLite</span>
                 </div>
-                <div>
-                  <p class="badge text-bg-secondary">Flutter, SQLite</p>
-                </div>
-                <a href="https://www.tranquiliza360.com.ar/" class="btn btn-primary btn-lg mt-auto">
-                  Project website
+                <a
+                  href="https://www.tranquiliza360.com.ar/"
+                  class="btn btn-glow w-100 mt-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Project website <i class="bi bi-arrow-up-right"></i>
                 </a>
               </div>
-            </div>
+            </article>
           </div>
 
           <!-- Card 3 -->
-          <div class="col d-flex">
-            <div class="card shadow-sm flex-fill">
+          <div class="col reveal">
+            <article class="card project-card h-100">
               <div class="card-thumbnail">
                 <img
-                  class="card-img-top img-fluid"
                   src="./images/downmix.webp"
                   alt="Screenshot with example of app usage."
-                >
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">MKV Downmixer</h5>
+                <h3 class="card-title">MKV Downmixer</h3>
                 <p class="card-text">
-                  Easy to use python app that automatically batch-converts MKV-based media files from 5.1 surround sound to stereo, while preserving voice clarity.
+                  Easy to use Python app that automatically batch-converts MKV-based media files
+                  from 5.1 surround sound to stereo, while preserving voice clarity.
                 </p>
                 <p class="card-text">
-                  The solution leverages the power of FFmpeg, ffprobe, and mkvmerge to ensure reliable audio extraction, conversion, and remuxing, while providing
-                   multiple downmix algorithms to better fit the user’s needs.
+                  The solution leverages FFmpeg, ffprobe, and mkvmerge to ensure reliable audio
+                  extraction, conversion, and remuxing, while providing multiple downmix
+                  algorithms to better fit the user's needs.
                 </p>
-                <div class="mt-auto">
-                   <!-- mt-auto used to push things to the bottom -->
+                <div class="tech-tags mt-auto">
+                  <span class="tag">Python</span>
+                  <span class="tag">Tkinter</span>
+                  <span class="tag">FFMpeg</span>
                 </div>
-                <div>
-                  <p class="badge text-bg-secondary">Python, Tkinter, FFMpeg</p>
-                </div>
-                <a href="https://github.com/InakiArzalluz/SurroundDownmix" class="btn btn-primary btn-lg">
-                  Project website
+                <a
+                  href="https://github.com/InakiArzalluz/SurroundDownmix"
+                  class="btn btn-glow w-100 mt-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Project website <i class="bi bi-arrow-up-right"></i>
                 </a>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
-
 
     <!-- Stack -->
-    <section id="tech-stack">
-      <div class="container mb-4">
-        <h2 class="text-body-emphasis subtitle">Stack</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
-            <div class="card shadow-sm">
+    <section id="tech-stack" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Toolbox</span>
+          <h2 class="section-title">Stack</h2>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <div class="col reveal">
+            <article class="card stack-card h-100">
               <div class="card-body">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" class="mb-2">
+                <div class="stack-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
                     <path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path>
-                </svg>
-                <h5 class="card-title">Front-End</h5>
-                <p class="card-text">
-                  HTML, CSS, Bootstrap, Flutter, Angular, React, JQuery
-                </p>
+                  </svg>
+                </div>
+                <h3 class="card-title">Front-End</h3>
+                <div class="tech-tags">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">Bootstrap</span>
+                  <span class="tag">Flutter</span>
+                  <span class="tag">Angular</span>
+                  <span class="tag">React</span>
+                  <span class="tag">JQuery</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-          <div class="col">
-            <div class="card shadow-sm">
+
+          <div class="col reveal">
+            <article class="card stack-card h-100">
               <div class="card-body">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" class="mb-2">
-                  <path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"></path>
-                </svg>
-                <h5 class="card-title">Back-End</h5>
-                <p class="card-text">
-                  .Net, Node.js, Express, Flask
-                </p>
+                <div class="stack-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"></path>
+                  </svg>
+                </div>
+                <h3 class="card-title">Back-End</h3>
+                <div class="tech-tags">
+                  <span class="tag">.Net</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">Express</span>
+                  <span class="tag">Flask</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-          <div class="col">
-            <div class="card shadow-sm">
+
+          <div class="col reveal">
+            <article class="card stack-card h-100">
               <div class="card-body">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" class="mb-2">
-                  <path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"></path>
-                </svg>
-                <h5 class="card-title">Database Management</h5>
-                <p class="card-text">
-                  PostgreSQL, SQLite, MongoDB
-                </p>
+                <div class="stack-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"></path>
+                  </svg>
+                </div>
+                <h3 class="card-title">Database Management</h3>
+                <div class="tech-tags">
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">SQLite</span>
+                  <span class="tag">MongoDB</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-          <div class="col">
-            <div class="card shadow-sm">
+
+          <div class="col reveal">
+            <article class="card stack-card h-100">
               <div class="card-body">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256" class="mb-2">
-                  <path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"></path>
-                </svg>
-                <h5 class="card-title">Languages</h5>
-                <p class="card-text">
-                  C++, Java, Python, Dart, JavaScript, TypeScript
-                </p>
+                <div class="stack-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"></path>
+                  </svg>
+                </div>
+                <h3 class="card-title">Languages</h3>
+                <div class="tech-tags">
+                  <span class="tag">C++</span>
+                  <span class="tag">Java</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Dart</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">TypeScript</span>
+                </div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact  me-->
-    <section id="contact-me">
+    <!-- Contact -->
+    <section id="contact-me" class="section">
       <div class="container">
-        <h2 class="text-body-emphasis subtitle">Contact</h2>
-        <div class="d-flex gap-2 mb-5">
-          <a 
-            href="https://www.linkedin.com/in/inaki-arzalluz/"
-            class="btn btn-primary btn-lg"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              class="bi bi-linkedin"
-              viewBox="0 0 20 20"
+        <div class="cta reveal">
+          <span class="eyebrow">Get in touch</span>
+          <h2 class="section-title">Let's build something great</h2>
+          <p class="cta-text">
+            Feel free to reach out — I'm always happy to talk about software, VR, or new
+            opportunities.
+          </p>
+          <div class="contact-buttons">
+            <a
+              href="https://www.linkedin.com/in/inaki-arzalluz/"
+              class="btn btn-glow"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path>
-            </svg>
-            Linkedin
-          </a>
-           <a 
-            href="mailto:ina.arzalluz@gmail.com"
-            class="btn btn-secondary btn-lg"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              class="bi envelope-fill"
-              viewBox="0 0 20 20"
-            >
-            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"></path>            </svg>
-            Gmail
-          </a>
+              <i class="bi bi-linkedin"></i>LinkedIn
+            </a>
+            <a href="mailto:ina.arzalluz@gmail.com" class="btn btn-ghost">
+              <i class="bi bi-envelope-fill"></i>Gmail
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <section id="footer">
-      <div class="container">
-        <footer 
-          class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
-        >
-          <div class="col-md-4 d-flex align-items-center">
-            <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Iñaki Arzálluz</span> 
-          </div> 
-    </section>
+    <footer class="site-footer">
+      <div
+        class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3"
+      >
+        <span>© 2025 Iñaki Arzálluz</span>
+        <a href="#title" class="back-to-top">
+          Back to top <i class="bi bi-arrow-up"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Reveal on scroll -->
+    <script>
+      (function () {
+        function revealAll(nodes) {
+          nodes.forEach(function (n) {
+            n.classList.add("in");
+          });
+        }
+        window.addEventListener("DOMContentLoaded", function () {
+          var nodes = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+          if (!("IntersectionObserver" in window)) {
+            revealAll(nodes);
+            return;
+          }
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("in");
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
+          );
+          nodes.forEach(function (n) {
+            io.observe(n);
+          });
+          // Safety net: never leave content hidden.
+          setTimeout(function () {
+            revealAll(nodes);
+          }, 2500);
+        });
+      })();
+    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

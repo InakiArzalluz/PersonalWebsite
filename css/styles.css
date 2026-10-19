@@ -1,25 +1,523 @@
-body {
-    background: linear-gradient(to bottom, #F9FBFF, #EAF0F6);
+/* ==========================================================================
+   Theme tokens
+   ========================================================================== */
+:root {
+    --bg: #0a0e17;
+    --bg-elev: #0f1523;
+
+    --surface: rgba(255, 255, 255, 0.035);
+    --surface-2: rgba(255, 255, 255, 0.06);
+
+    --border: rgba(255, 255, 255, 0.09);
+    --border-2: rgba(255, 255, 255, 0.16);
+
+    --text: #e9eef7;
+    --muted: #96a3ba;
+
+    --accent: #7c9cff;
+    --accent-2: #22d3ee;
+    --grad: linear-gradient(120deg, #7c9cff 0%, #22d3ee 100%);
+
+    --shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.75);
+    --glow: 0 18px 46px -16px rgba(34, 211, 238, 0.55);
+
+    --radius: 18px;
+    --nav-h: 68px;
+
+    /* Align Bootstrap's dark theme with ours */
+    --bs-body-bg: var(--bg);
+    --bs-body-color: var(--text);
+    --bs-border-color: var(--border);
 }
 
-.title {
+/* ==========================================================================
+   Base
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 20px);
+    /* `clip` (not `hidden`) so the root does not become a scroll container,
+       which can stop Firefox from compositing animations. */
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    letter-spacing: 0.005em;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(1100px 620px at 82% -8%, rgba(124, 156, 255, 0.20), transparent 60%),
+        radial-gradient(900px 520px at -8% 18%, rgba(34, 211, 238, 0.13), transparent 55%);
+    background-repeat: no-repeat, no-repeat;
+}
+
+h1, h2, h3, .navbar-brand {
     font-family: "Work Sans", "Noto Sans", sans-serif;
-    letter-spacing: -0.033em;
+}
+
+::selection {
+    background: rgba(124, 156, 255, 0.35);
+    color: #fff;
+}
+
+/* Nicer focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.site-nav {
+    min-height: var(--nav-h);
+    background: rgba(10, 14, 23, 0.9);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text) !important;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    background: var(--grad);
+    color: #071018;
+    font-size: 0.85rem;
     font-weight: 900;
+    letter-spacing: 0;
+    box-shadow: var(--glow);
+}
+
+.site-nav .nav-link {
+    color: var(--muted) !important;
+    font-weight: 500;
+    padding: 0.5rem 0.85rem;
+    border-radius: 10px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.site-nav .nav-link:hover,
+.site-nav .nav-link:focus-visible {
+    color: var(--text) !important;
+    background: var(--surface-2);
+}
+
+.site-nav .navbar-toggler {
+    border-color: var(--border-2);
+}
+
+.site-nav .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+    position: relative;
+    z-index: 1;
+    padding: calc(var(--nav-h) + 4.5rem) 0 3.5rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1.03;
+    font-size: clamp(2.35rem, 6vw, 4.1rem);
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Fallback if background-clip: text is unsupported */
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+    .gradient-text {
+        background: none;
+        color: var(--accent);
+    }
+}
+
+.hero-role {
+    font-weight: 600;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    color: var(--text);
+    opacity: 0.92;
+    margin-bottom: 1.1rem;
+}
+
+.hero-lead {
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    max-width: 62ch;
+    margin-bottom: 0.7rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.7rem;
+}
+
+/* Avatar: gradient ring + soft glow, gently floating.
+   Kept as ONE element so the glow travels with the photo. */
+.hero-avatar {
+    width: clamp(210px, 42vw, 330px);
+    aspect-ratio: 1;
+    margin-inline: auto;
+    padding: 6px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg, #7c9cff, #22d3ee, #7c9cff);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), var(--glow);
+    transform: translateZ(0);
+    /* The 0.02deg rotation is imperceptible (the edge shifts ~0.1px), but it
+       keeps the composited layer off the integer pixel grid. Firefox then
+       samples it at sub-pixel positions instead of snapping it, so the float
+       stays smooth even at a slow, small-amplitude movement. */
+    animation: float 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+.hero-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background: var(--bg-elev);
+}
+
+@keyframes float {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0.02deg); }
+    50% { transform: translate3d(0, -10px, 0) rotate(0.02deg); }
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+        border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn i {
+    font-size: 1.05em;
+    line-height: 1;
+}
+
+.btn-glow {
+    color: #071018;
+    background: var(--grad);
+    border: 0;
+    padding: 0.8rem 1.5rem;
+    box-shadow: var(--glow);
+}
+
+.btn-glow:hover,
+.btn-glow:focus-visible {
+    color: #071018;
+    transform: translateY(-2px);
+    box-shadow: 0 22px 52px -14px rgba(34, 211, 238, 0.75);
+}
+
+.btn-ghost {
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-2);
+    padding: 0.8rem 1.5rem;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+    color: var(--text);
+    background: var(--surface-2);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+.section {
+    position: relative;
+    z-index: 1;
+    padding: 3.5rem 0;
+}
+
+.section-head {
+    margin-bottom: 2.2rem;
+}
+
+.section-title {
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card {
+    position: relative;
+    color: var(--text);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1), border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-2);
+    box-shadow: var(--shadow);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.65rem;
 }
 
 .card-text {
-    color: #60768a;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 0.7rem;
+    overflow-wrap: anywhere;
 }
 
-.subtitle {
-    font-weight: 700;
+.card-thumbnail {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
 }
 
-.my-description {
-    text-align: justify;
+.card-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 
-#portrait{
-    margin-top: 0.6rem;
+.card:hover .card-thumbnail img {
+    transform: scale(1.06);
+}
+
+.card-thumbnail::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(10, 14, 23, 0.55));
+    pointer-events: none;
+}
+
+/* Feature bullet list (project card 2) */
+.feature-list {
+    margin: 0 0 0.6rem;
+    padding-left: 1.1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.feature-list li {
+    margin-bottom: 0.25rem;
+}
+
+.feature-list li::marker {
+    color: var(--accent-2);
+}
+
+/* Tech chips */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 0.35rem;
+}
+
+.tag {
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 0.32rem 0.65rem;
+    border-radius: 999px;
+    color: #d5e2ff;
+    background: rgba(124, 156, 255, 0.13);
+    border: 1px solid rgba(124, 156, 255, 0.28);
+    white-space: nowrap;
+}
+
+/* Stack cards */
+.stack-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+    color: var(--accent-2);
+    background: linear-gradient(160deg, rgba(124, 156, 255, 0.24), rgba(34, 211, 238, 0.14));
+    border: 1px solid var(--border-2);
+}
+
+.stack-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ==========================================================================
+   Contact CTA
+   ========================================================================== */
+.cta {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: clamp(1.8rem, 5vw, 3.4rem);
+    border: 1px solid var(--border-2);
+    border-radius: calc(var(--radius) + 6px);
+    background:
+        radial-gradient(620px 220px at 50% 0%, rgba(124, 156, 255, 0.20), transparent 70%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+}
+
+.cta-text {
+    color: var(--muted);
+    max-width: 52ch;
+    margin: 0.6rem auto 1.7rem;
+    line-height: 1.7;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.site-footer .back-to-top {
+    color: var(--muted);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer .back-to-top:hover,
+.site-footer .back-to-top:focus-visible {
+    color: var(--accent-2);
+}
+
+/* ==========================================================================
+   Reveal on scroll (only when JS is available)
+   ========================================================================== */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.js .reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 575.98px) {
+    .hero {
+        padding-top: calc(var(--nav-h) + 3rem);
+    }
+
+    .contact-buttons .btn {
+        width: 100%;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+    }
 }
